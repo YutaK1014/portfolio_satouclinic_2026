@@ -37,7 +37,7 @@ p, h1, h2, h3, figure, dl, dd { margin: 0; }
 .site-header {
   height: 150px;
   background: var(--green);
-  color: #fff;
+  color: var(--deep-green);
 }
 .header-inner {
   width: 1320px;
@@ -79,15 +79,31 @@ main { overflow: hidden; }
   object-fit: cover;
   object-position: center center;
 }
+.hero-slide,
+.hero-copy { transition: opacity .5s ease; }
+.hero-slide.is-changing { opacity: 0; }
+.hero-copy.is-changing { opacity: 0; }
 .hero-copy {
   position: absolute;
   top: 35px;
   right: 76px;
-  color: #fff;
+  color: var(--deep-green);
   font-size: 43px;
   font-weight: 700;
   letter-spacing: .06em;
-  text-shadow: 0 2px 8px rgba(0,0,0,.25);
+  text-shadow: 0 1px 4px rgba(255,255,255,.7);
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.78);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.hero-copy--left { left: 58px; right: auto; }
+.hero-copy--center { left: 50%; right: auto; transform: translateX(-50%); white-space: nowrap; }
+.hero-copy--dark {
+  color: var(--deep-green);
+  text-shadow: 0 1px 4px rgba(255,255,255,.7);
+  background: rgba(255,255,255,.78);
 }
 
 .hours-block {
@@ -437,5 +453,174 @@ main { overflow: hidden; }
 }
 
 @media (max-width: 1180px) {
-  body { min-width: 1180px; }
+  body { min-width: 0; }
+
+  .header-inner,
+  .hero,
+  .hours-block,
+  .news,
+  .greeting,
+  .services,
+  .about,
+  .staff,
+  .access,
+  .bottom-info {
+    width: min(100% - 32px, 1280px);
+  }
+
+  .header-inner { padding: 20px 0; }
+  .global-nav { gap: 20px; }
+  .hero { height: min(56vw, 620px); }
+  .greeting-card { grid-template-columns: minmax(280px, 40%) 1fr; }
+  .service-grid { gap: 40px; }
+  .staff-grid { gap: 60px; }
+}
+
+@media (max-width: 767px) {
+  body { font-size: 16px; }
+
+  .site-header { height: auto; }
+  .header-inner {
+    width: calc(100% - 24px);
+    padding: 14px 0 12px;
+    align-items: center;
+  }
+  .brand img { width: min(230px, 72vw); }
+  .global-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px 14px;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: normal;
+  }
+
+  .hero {
+    width: calc(100% - 24px);
+    height: 58vw;
+    min-height: 240px;
+    margin-top: 24px;
+    border-radius: 30px;
+  }
+  .hero-copy {
+    top: 18px;
+    right: 20px;
+    font-size: clamp(20px, 6vw, 32px);
+    padding: 5px 10px;
+  }
+  .hero-copy--left { left: 20px; right: auto; }
+  .hero-copy--center { left: 50%; right: auto; }
+
+  .hours-block,
+  .news,
+  .greeting,
+  .services,
+  .about,
+  .staff,
+  .access,
+  .bottom-info {
+    width: calc(100% - 24px);
+  }
+  .hours-block { margin-top: 48px; }
+  .hours-table { font-size: 12px; }
+  .hours-table th,
+  .hours-table td { padding: 8px 3px; border-width: 2px; }
+  .hours-table thead th { font-size: 12px; }
+  .hours-table thead th:first-child,
+  .hours-table tbody th {
+    width: 106px;
+    padding-left: 6px;
+  }
+  .hours-table tbody th { font-size: 11px; }
+  .hours-notes,
+  .bottom-notes { font-size: 11px; text-align: left; }
+
+  .news { margin-top: 60px; }
+  .news h2 { font-size: 25px; border-radius: 18px; }
+  .news-list { margin-top: 16px; }
+  .news-row {
+    grid-template-columns: 82px 1fr;
+    min-height: 0;
+    gap: 4px 8px;
+    padding: 12px 0;
+    font-size: 14px;
+  }
+  .news-row time { font-size: 11px; }
+  .news-row p { grid-column: 2; }
+  .news-row a {
+    grid-column: 2;
+    font-size: 11px;
+  }
+  .news-more { font-size: 11px; }
+
+  .section-title { font-size: 29px; }
+  .greeting,
+  .services,
+  .about,
+  .staff,
+  .access { margin-top: 72px; }
+  .greeting-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    margin-top: 18px;
+    border-radius: 30px;
+  }
+  .greeting-card figure { height: 270px; }
+  .greeting-text { padding: 24px 20px 28px; font-size: 14px; }
+  .greeting-text p + p { margin-top: 15px; }
+  .signature { font-size: 16px; }
+
+  .service-grid,
+  .staff-grid { grid-template-columns: 1fr; gap: 38px; margin-top: 24px; }
+  .service-card img { height: 52vw; border-radius: 30px; }
+  .service-card h3 { margin-top: 12px; font-size: 19px; }
+  .service-card p,
+  .staff-card p { padding: 0 8px; font-size: 14px; }
+  .service-note { font-size: 11px; }
+
+  .about-panel {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    border-radius: 30px;
+    background: #eaf8f2;
+  }
+  .about-text { padding: 26px 20px 28px; }
+  .about-text h2 { font-size: 28px; }
+  .about-text p { margin-top: 18px; font-size: 14px; }
+  .about-panel > img { height: 260px; }
+
+  .staff-intro { font-size: 14px; text-align: left; }
+  .director-profile {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .director-profile img {
+    width: min(250px, 70vw);
+    height: min(250px, 70vw);
+    margin: 0 auto;
+  }
+  .director-profile h3 { font-size: 22px; text-align: center; }
+  .director-profile p { font-size: 14px; }
+  .staff-card img { width: min(220px, 62vw); height: min(220px, 62vw); }
+  .staff-card h3 { margin-top: 16px; font-size: 19px; }
+  .staff-card-single { grid-column: auto; width: auto; }
+
+  .map { height: 55vw; min-height: 220px; margin-top: 24px; border-radius: 30px; }
+  .access-details { grid-template-columns: 1fr; gap: 22px; font-size: 14px; }
+  .access-details dl { grid-template-columns: 100px 1fr; gap: 10px; }
+  .access-notice { font-size: 12px; padding: 10px; }
+  .bottom-info { margin-top: 52px; }
+  .bottom-hours { font-size: 11px; }
+  .bottom-hours th,
+  .bottom-hours td { padding: 7px 2px; }
+  .bottom-hours thead th:first-child,
+  .bottom-hours tbody th { width: 106px; }
+  .departments { margin-top: 38px; }
+  .departments h3 { font-size: 22px; }
+  .departments p,
+  .departments p:nth-of-type(2),
+  .departments p:nth-of-type(3) { font-size: 16px; }
 }

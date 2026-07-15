@@ -29,8 +29,8 @@
 
   <main id="top">
     <section class="hero" aria-label="メインビジュアル">
-      <img src="./assets/Hospital_Exterior/hospital_1.jpg" alt="佐藤医院の外観">
-      <p class="hero-copy">地域に根差した医療</p>
+      <img class="hero-slide" id="hero-image" src="./assets/Top_Slides/hospital_1.jpg" alt="佐藤医院の外観">
+      <p class="hero-copy hero-copy--left">地域に根差した医療</p>
     </section>
 
     <section class="hours-block" aria-labelledby="hours-title-top">
@@ -240,5 +240,32 @@
   <footer class="site-footer">
     <small>©2024 SATO CLINIC</small>
   </footer>
+  <script>
+    const heroImages = [
+      { src: './assets/Top_Slides/hospital_1.jpg', alt: '佐藤医院の外観', copy: '地域に根差した医療', position: 'left' },
+      { src: './assets/Top_Slides/hospital_2.jpg', alt: '佐藤医院の外観', copy: '地域に根差した医療', position: 'right dark' },
+      { src: './assets/Top_Slides/hospital_8.jpg', alt: '佐藤医院の外観', copy: '地域に根差した医療', position: 'left' },
+      { src: './assets/Top_Slides/information_1.jpg', alt: '佐藤医院のお知らせ', copy: '地域に根差した医療', position: 'center dark' },
+      { src: './assets/Top_Slides/patient_7.jpg', alt: '診察を受ける患者', copy: '地域に根差した医療', position: 'left dark' },
+      { src: './assets/Top_Slides/patient_9.jpg', alt: '診察室の様子', copy: '地域に根差した医療', position: 'left dark' }
+    ];
+    const heroImage = document.querySelector('#hero-image');
+    const heroCopy = document.querySelector('.hero-copy');
+    let heroIndex = 0;
+
+    setInterval(() => {
+      heroImage.classList.add('is-changing');
+      heroCopy.classList.add('is-changing');
+
+      setTimeout(() => {
+        heroIndex = (heroIndex + 1) % heroImages.length;
+        heroImage.src = heroImages[heroIndex].src;
+        heroImage.alt = heroImages[heroIndex].alt;
+        heroCopy.textContent = heroImages[heroIndex].copy;
+        heroImage.classList.remove('is-changing');
+        heroCopy.className = `hero-copy hero-copy--${heroImages[heroIndex].position.replace(' ', ' hero-copy--')}`;
+      }, 500);
+    }, 4000);
+  </script>
 </body>
 </html>
