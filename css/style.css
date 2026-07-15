@@ -48,38 +48,18 @@ p, h1, h2, h3, figure, dl, dd { margin: 0; }
   justify-content: space-between;
 }
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #fff;
+  display: block;
+  width: 380px;
+  flex: 0 0 380px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: #fff;
 }
-.brand-symbol {
-  width: 92px;
-  height: 92px;
-  overflow: hidden;
-  flex: 0 0 92px;
-}
-.brand-symbol img {
-  width: 320px;
-  max-width: none;
+.brand img {
+  display: block;
+  width: 360px;
   height: auto;
-  filter: brightness(0) invert(1);
-}
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
-  font-weight: 700;
-  letter-spacing: .12em;
-}
-.brand-text > span { font-size: 34px; }
-.brand-text small {
-  margin-top: 7px;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: .08em;
+  max-width: 100%;
 }
 .global-nav {
   display: flex;
@@ -514,11 +494,8 @@ main { overflow: hidden; }
     padding: 14px 0 12px;
     align-items: center;
   }
-  .brand img { width: min(230px, 72vw); }
-  .brand-symbol { width: 58px; height: 58px; flex-basis: 58px; }
-  .brand-symbol img { width: 202px; }
-  .brand-text > span { font-size: 24px; }
-  .brand-text small { margin-top: 4px; font-size: 12px; }
+  .brand { width: auto; flex: 0 0 auto; padding: 4px 6px; }
+  .brand img { width: min(230px, 100%); height: auto; max-width: 100%; }
   .global-nav {
     width: 100%;
     justify-content: center;
