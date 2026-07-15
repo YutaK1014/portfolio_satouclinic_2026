@@ -169,7 +169,7 @@ main { overflow: hidden; }
   color: #fff;
   background: var(--green);
   font-size: 37px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: .12em;
 }
 .news-list { margin-top: 30px; }
@@ -199,8 +199,8 @@ main { overflow: hidden; }
 
 .section-title {
   color: var(--green);
-  font-size: 42px;
-  font-weight: 500;
+  font-size: 50px;
+  font-weight: 700;
   text-align: center;
   letter-spacing: .08em;
 }
@@ -577,7 +577,7 @@ main { overflow: hidden; }
   }
   .news-more { font-size: 11px; }
 
-  .section-title { font-size: 29px; }
+  .section-title { font-size: 34px; }
   .greeting,
   .services,
   .about,
