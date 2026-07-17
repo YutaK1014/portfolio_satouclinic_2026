@@ -262,6 +262,7 @@ main { overflow: hidden; }
   border-radius: 78px;
   object-fit: cover;
 }
+.service-card-respiratory img { object-position: 75% center; }
 .service-card h3 {
   margin-top: 18px;
   font-size: 24px;
