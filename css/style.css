@@ -263,6 +263,7 @@ main { overflow: hidden; }
   object-fit: cover;
 }
 .service-card-respiratory img { object-position: 75% center; }
+.service-card-digestive img { object-position: 0% center; }
 .service-card h3 {
   margin-top: 18px;
   font-size: 24px;
