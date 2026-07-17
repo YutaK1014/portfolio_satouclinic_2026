@@ -424,7 +424,7 @@ main { overflow: hidden; }
   height: 650px;
   margin-top: 45px;
   border-radius: 55px;
-  object-fit: cover;
+  border: 0;
 }
 .access-details {
   display: grid;
