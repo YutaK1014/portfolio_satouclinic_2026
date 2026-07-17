@@ -195,6 +195,8 @@ main { overflow: hidden; }
   margin: 28px 0 0 auto;
   font-size: 15px;
   font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .section-title {
@@ -277,6 +279,11 @@ main { overflow: hidden; }
   text-align: center;
   font-size: 17px;
 }
+.service-note a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.service-note a:hover { opacity: .7; }
 
 .about {
   width: 1050px;
@@ -318,6 +325,8 @@ main { overflow: hidden; }
   text-align: right;
   font-size: 15px;
   font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .about-panel > img {
   position: absolute;
