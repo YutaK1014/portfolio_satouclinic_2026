@@ -147,8 +147,8 @@ main { overflow: hidden; }
 .hours-table thead th:first-child,
 .hours-table tbody th {
   width: 280px;
-  text-align: left;
-  padding-left: 30px;
+  text-align: center;
+  padding-left: 10px;
 }
 .hours-table tbody th { font-size: 19px; font-weight: 600; }
 .hours-notes {
@@ -218,7 +218,10 @@ main { overflow: hidden; }
   border-radius: 74px;
   background: #fff;
 }
-.greeting-card figure { height: 690px; }
+.greeting-card figure {
+  min-height: 690px;
+  height: auto;
+}
 .greeting-card img {
   width: 100%;
   height: 100%;
@@ -227,15 +230,17 @@ main { overflow: hidden; }
 }
 .greeting-text {
   padding: 54px 62px 42px 54px;
-  font-size: 18px;
-  line-height: 1.72;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.85;
 }
-.greeting-text p + p { margin-top: 22px; }
+.greeting-text p + p { margin-top: 28px; }
 .signature {
   margin-top: 24px !important;
   text-align: right;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .services {
@@ -270,7 +275,7 @@ main { overflow: hidden; }
 .service-note {
   margin-top: 36px;
   text-align: center;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .about {
@@ -563,10 +568,12 @@ main { overflow: hidden; }
   .hours-table tbody th {
     width: 106px;
     padding-left: 6px;
+    text-align: center;
+    padding-left: 0;
   }
   .hours-table tbody th { font-size: 11px; }
   .hours-notes,
-  .bottom-notes { font-size: 11px; text-align: left; }
+  .bottom-notes { font-size: 11px; text-align: center; }
 
   .news { margin-top: 60px; }
   .news h2 { font-size: 25px; border-radius: 18px; }
@@ -598,33 +605,68 @@ main { overflow: hidden; }
     margin-top: 18px;
     border-radius: 30px;
   }
-  .greeting-card figure { height: 270px; }
-  .greeting-text { padding: 24px 20px 28px; font-size: 14px; }
-  .greeting-text p + p { margin-top: 15px; }
-  .signature { font-size: 16px; }
+  .greeting-card figure { height: 270px; min-height: 0; }
+  .greeting-text {
+    padding: 24px 20px 28px;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: center;
+  }
+  .greeting-text p + p { margin-top: 18px; }
+  .signature { font-size: 17px; }
 
   .service-grid,
   .staff-grid { grid-template-columns: 1fr; gap: 38px; margin-top: 24px; }
   .service-card img { height: 52vw; border-radius: 30px; }
   .service-card h3 { margin-top: 12px; font-size: 19px; }
   .service-card p,
-  .staff-card p { padding: 0 8px; font-size: 14px; }
-  .service-note { font-size: 11px; }
+  .staff-card p { padding: 0 8px; font-size: 14px; text-align: center; }
+  .service-note { font-size: 13px; }
 
   .about-panel {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     height: auto;
     min-height: 0;
     border-radius: 30px;
     background: #eaf8f2;
   }
-  .about-text { width: 100%; height: auto; padding: 26px 20px 28px; background: #eaf8f2; }
-  .about-text h2 { font-size: 28px; }
-  .about-text p { margin-top: 18px; font-size: 14px; }
-  .about-panel > img { position: relative; inset: auto; order: 2; height: 260px; min-height: 0; }
+  .about-text { display: contents; }
+  .about-text h2 {
+    grid-row: 1;
+    width: 100%;
+    padding: 26px 20px 0;
+    background: #eaf8f2;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .about-panel > img {
+    position: relative;
+    inset: auto;
+    grid-row: 2;
+    height: 260px;
+    min-height: 0;
+  }
+  .about-text p {
+    grid-row: 3;
+    width: 100%;
+    margin-top: 0;
+    padding: 18px 20px 0;
+    background: #eaf8f2;
+    font-size: 14px;
+    text-align: center;
+  }
+  .about-text a {
+    grid-row: 4;
+    width: 100%;
+    margin-top: 0;
+    padding: 20px;
+    background: #eaf8f2;
+    text-align: center;
+  }
 
-  .staff-intro { font-size: 14px; text-align: left; }
+  .staff-intro { font-size: 14px; text-align: center; }
   .director-profile {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -636,13 +678,14 @@ main { overflow: hidden; }
     margin: 0 auto;
   }
   .director-profile h3 { font-size: 22px; text-align: center; }
-  .director-profile p { font-size: 14px; }
+  .director-profile p { font-size: 14px; text-align: center; }
   .staff-card img { width: min(220px, 62vw); height: min(220px, 62vw); }
   .staff-card h3 { margin-top: 16px; font-size: 19px; }
   .staff-card-single { grid-column: auto; width: auto; }
 
   .map { height: 55vw; min-height: 220px; margin-top: 24px; border-radius: 30px; }
-  .access-details { grid-template-columns: 1fr; gap: 22px; font-size: 14px; }
+  .access-details { grid-template-columns: 1fr; gap: 22px; font-size: 14px; text-align: center; }
+  .access-details ul { padding-left: 0; list-style-position: inside; }
   .access-details dl { grid-template-columns: 100px 1fr; gap: 10px; }
   .access-notice { font-size: 15px; font-weight: 700; padding: 10px; }
   .bottom-info { margin-top: 52px; }
