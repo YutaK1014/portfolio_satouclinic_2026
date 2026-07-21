@@ -113,6 +113,8 @@ main { overflow: hidden; }
   backdrop-filter: blur(3px);
 }
 .hero-copy--left { left: 58px; right: auto; }
+.hero-copy--top { top: 35px; bottom: auto; }
+.hero-copy--bottom { top: auto; bottom: 35px; }
 .hero-copy--center { left: 50%; right: auto; transform: translateX(-50%); white-space: nowrap; }
 .hero-copy--dark {
   color: var(--deep-green);
@@ -558,6 +560,8 @@ main { overflow: hidden; }
     padding: 5px 10px;
   }
   .hero-copy--left { left: 20px; right: auto; }
+  .hero-copy--top { top: 18px; bottom: auto; }
+  .hero-copy--bottom { top: auto; bottom: 18px; }
   .hero-copy--center { left: 50%; right: auto; }
 
   .hours-block,
