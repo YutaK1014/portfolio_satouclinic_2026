@@ -562,6 +562,21 @@ main { overflow: hidden; }
     padding: 38px 42px 36px;
     font-size: 18px;
   }
+  .greeting-card img {
+    width: 115%;
+    max-width: none;
+    margin-left: -15%;
+    object-position: right center;
+  }
+  .service-card img {
+    height: auto;
+    aspect-ratio: 1.38;
+  }
+  .about-panel > img {
+    object-fit: contain;
+    object-position: center center;
+    background: #eaf8f2;
+  }
   .director-profile {
     grid-template-columns: 300px minmax(0, 1fr);
   }
