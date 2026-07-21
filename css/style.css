@@ -491,7 +491,7 @@ main { overflow: hidden; }
   justify-content: center;
   color: #fff;
   background: var(--green);
-  font-size: 11px;
+  font-size: 16px;
 }
 
 @media (max-width: 1180px) {
