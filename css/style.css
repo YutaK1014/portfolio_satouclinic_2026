@@ -44,7 +44,7 @@ p, h1, h2, h3, figure, dl, dd { margin: 0; }
   color: #fff;
 }
 .header-inner {
-  width: 1320px;
+  width: min(1320px, calc(100% - 32px));
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -210,7 +210,7 @@ main { overflow: hidden; }
 }
 
 .greeting {
-  width: 1280px;
+  width: min(1280px, calc(100% - 32px));
   margin: 130px auto 0;
 }
 .greeting-card {
@@ -343,31 +343,37 @@ main { overflow: hidden; }
 }
 
 .staff {
-  width: 1240px;
+  width: min(1240px, calc(100% - 32px));
   margin: 150px auto 0;
 }
 .staff-intro {
-  margin-top: 30px;
+  max-width: 760px;
+  margin: 30px auto 0;
   text-align: center;
   font-size: 20px;
   line-height: 1.65;
 }
 .director-profile {
   display: grid;
-  grid-template-columns: 390px 1fr;
+  grid-template-columns: 300px minmax(0, 1fr);
   align-items: center;
-  gap: 35px;
+  gap: 42px;
   margin-top: 56px;
+  padding: 32px 42px;
+  border: 1px solid #dce8e0;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(45, 83, 63, .08);
 }
 .director-profile img {
-  width: 390px;
-  height: 390px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
   object-position: 89% center;
 }
 .director-profile h3 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
 }
 .director-profile p {
@@ -380,14 +386,24 @@ main { overflow: hidden; }
 .staff-card p + p { margin-top: 7px; }
 .staff-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 90px 135px;
-  margin-top: 76px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 56px;
 }
-.staff-card { text-align: center; }
+.staff-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 24px;
+  border: 1px solid #dce8e0;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(45, 83, 63, .07);
+  text-align: center;
+}
 .staff-card img {
-  width: 340px;
-  height: 340px;
+  width: 220px;
+  height: 220px;
   margin: 0 auto;
   border-radius: 50%;
   object-fit: cover;
@@ -403,20 +419,21 @@ main { overflow: hidden; }
   object-position: 0% center;
 }
 .staff-card h3 {
-  margin-top: 25px;
-  font-size: 25px;
+  margin-top: 20px;
+  font-size: 22px;
   font-weight: 700;
 }
 .staff-card p {
-  margin-top: 15px;
+  flex: 1;
+  margin-top: 12px;
   text-align: left;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.65;
 }
 .staff-card-single {
-  grid-column: 1 / -1;
-  width: 520px;
-  margin: 0 auto;
+  grid-column: auto;
+  width: auto;
+  margin: 0;
 }
 
 .access {
@@ -493,6 +510,45 @@ main { overflow: hidden; }
   background: var(--green);
   font-size: 16px;
 }
+
+/* Keep component corners consistent while preserving circular staff portraits. */
+.hero,
+.news h2,
+.greeting-card,
+.service-card img,
+.about-panel,
+.director-profile,
+.staff-card,
+.map { border-radius: 12px !important; }
+
+/* Typography scale: body 16px, with deliberate heading steps. */
+body { font-size: 16px; }
+.global-nav { font-size: 16px; }
+.hours-table { font-size: 18px; }
+.hours-table thead th { font-size: 20px; }
+.hours-table tbody th { font-size: 16px; }
+.hours-notes { font-size: 15px; }
+.news h2 { font-size: 32px; }
+.news-row { font-size: 16px; }
+.section-title { font-size: 42px; }
+.greeting-text { font-size: 16px; }
+.signature { font-size: 18px; }
+.service-card h3 { font-size: 22px; }
+.service-card p, .service-note { font-size: 16px; }
+.about-text h2 { font-size: 36px; }
+.about-text p { font-size: 16px; }
+.staff-intro { font-size: 16px; }
+.director-profile h3 { font-size: 26px; }
+.director-profile p, .staff-card p { font-size: 16px; }
+.staff-card h3 { font-size: 22px; }
+.access-details { font-size: 16px; }
+.access-notice { font-size: 18px; }
+.bottom-hours { font-size: 18px; }
+.bottom-notes { font-size: 15px; }
+.departments h3 { font-size: 26px; }
+.departments p { font-size: 21px; }
+.departments p:nth-of-type(2) { font-size: 20px; }
+.departments p:nth-of-type(3) { font-size: 19px; }
 
 @media (max-width: 1180px) {
   body { min-width: 0; }
