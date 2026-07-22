@@ -259,7 +259,10 @@
     const heroCopy = document.querySelector('.hero-copy');
     let heroIndex = 0;
 
-    setInterval(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      setInterval(() => {
       heroImage.classList.add('is-changing');
       heroCopy.classList.add('is-changing');
 
@@ -271,7 +274,8 @@
         heroImage.classList.remove('is-changing');
         heroCopy.className = `hero-copy hero-copy--${heroImages[heroIndex].position.replace(' ', ' hero-copy--')}`;
       }, 500);
-    }, 4000);
+      }, 4000);
+    }
   </script>
 </body>
 </html>

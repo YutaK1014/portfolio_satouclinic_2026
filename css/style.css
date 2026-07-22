@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
+
 :root {
-  --green: #6fbd91;
+  --color-main: #2f8f83;
+  --color-accent: #46aac8;
+  --green: var(--color-main);
   --deep-green: #1c8a53;
   --pale-green: #f4fbf6;
   --line: #33463a;
   --text: #111714;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide,
+  .hero-copy {
+    transition: none;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -108,7 +119,7 @@ main { overflow: hidden; }
   text-shadow: 0 1px 4px rgba(255,255,255,.7);
   padding: 8px 16px;
   border-radius: 12px;
-  background: rgba(255,255,255,.78);
+  background: rgba(244,251,246,.92);
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
 }
@@ -119,7 +130,7 @@ main { overflow: hidden; }
 .hero-copy--dark {
   color: var(--deep-green);
   text-shadow: 0 1px 4px rgba(255,255,255,.7);
-  background: rgba(255,255,255,.78);
+  background: rgba(244,251,246,.92);
 }
 
 .hours-block {
@@ -177,7 +188,7 @@ main { overflow: hidden; }
 .news-list { margin-top: 30px; }
 .news-row {
   display: grid;
-  grid-template-columns: 225px 1fr 170px;
+  grid-template-columns: 225px 1fr 225px;
   align-items: center;
   min-height: 84px;
   border-bottom: 2px solid #7b8d81;
@@ -185,12 +196,16 @@ main { overflow: hidden; }
 }
 .news-row time { font-size: 16px; font-weight: 600; }
 .news-row p { text-align: center; }
-.news-row a {
+.news-row a { 
   text-align: right;
   font-size: 15px;
   font-weight: 600;
 }
 .news-row a::before { content: "● "; }
+.news-row a,
+.news-more,
+.service-note a,
+.about-text a { color: var(--color-accent); }
 .news-more {
   display: block;
   width: max-content;
@@ -234,7 +249,7 @@ main { overflow: hidden; }
 }
 .greeting-text {
   padding: 54px 62px 42px 54px;
-  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
   font-size: 21px;
   font-weight: 500;
   line-height: 1.85;
@@ -543,7 +558,7 @@ body { font-size: 16px; }
 .staff-card h3 { font-size: 22px; }
 .access-details { font-size: 16px; }
 .access-notice { font-size: 18px; }
-.bottom-hours { font-size: 18px; }
+.bottom-hours { margin-top: 48px; font-size: 18px; }
 .bottom-notes { font-size: 15px; }
 .departments h3 { font-size: 26px; }
 .departments p { font-size: 21px; }
@@ -746,17 +761,18 @@ body { font-size: 16px; }
   .news h2 { font-size: 25px; border-radius: 18px; }
   .news-list { margin-top: 16px; }
   .news-row {
-    grid-template-columns: 82px 1fr;
+    grid-template-columns: 1fr;
     min-height: 0;
     gap: 4px 8px;
     padding: 12px 0;
     font-size: 14px;
   }
   .news-row time { font-size: 11px; }
-  .news-row p { grid-column: 2; }
+  .news-row p { grid-column: 1; }
   .news-row a {
-    grid-column: 2;
+    grid-column: 1;
     font-size: 11px;
+    text-align: center;
   }
   .news-more { font-size: 11px; }
 
